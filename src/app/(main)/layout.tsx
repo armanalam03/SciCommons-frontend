@@ -6,7 +6,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     <div vaul-drawer-wrapper="">
       <NavBar />
       <main className="flex-grow pb-16 md:pb-0">{children}</main>
-      {/* <Footer /> */}
     </div>
   );
 }

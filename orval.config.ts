@@ -1,4 +1,3 @@
-// import { faker } from '@faker-js/faker';
 import { defineConfig } from 'orval';
 
 const backend_url = 'http://127.0.0.1:8000'; // Change this to your backend URL
@@ -10,7 +9,6 @@ export default defineConfig({
       target: './src/api/generated.ts',
       schemas: './src/api/schemas',
       client: 'react-query',
-      //   mock: true,
       override: {
         mutator: {
           path: './src/api/custom-instance.ts',

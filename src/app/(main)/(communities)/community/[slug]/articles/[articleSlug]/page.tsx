@@ -60,14 +60,7 @@ const CommunityArticleDisplayPage: React.FC = () => {
           title: 'Reviews',
           content: (
             <div className="flex flex-col gap-2">
-              {/* Todo: Uncomment this after testing */}
-              {/* {!data.data.is_submitter && (
-                <ReviewForm
-                  articleId={data?.data.id || 0}
-                  refetch={reviewsRefetch}
-                  communityId={data?.data.community_article?.community.id}
-                />
-              )} */}
+              {/* Review form visibility logic can be toggled once finalized */}
               <ReviewForm
                 articleId={Number(data.data.id)}
                 refetch={reviewsRefetch}
