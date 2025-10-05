@@ -45,8 +45,6 @@ const NavBar: React.FC = () => {
     { href: '/', label: 'Home' },
     { href: '/articles', label: 'Articles' },
     { href: '/communities', label: 'Communities' },
-    // { href: '/posts', label: 'Posts' },
-    // { href: '/about', label: 'About' },
   ];
 
   return (
@@ -156,16 +154,7 @@ const CreateDropdown: React.FC = () => {
             </TooltipContent>
           </Tooltip>
 
-          {/* <Tooltip>
-            <TooltipTrigger asChild>
-              <DropdownMenuItem onClick={() => setIsDropdownOpen(false)}>
-                <Link href="/posts/createpost">Create Post</Link>
-              </DropdownMenuItem>
-            </TooltipTrigger>
-            <TooltipContent side="left" sideOffset={8}>
-              Share your thoughts with a post
-            </TooltipContent>
-          </Tooltip> */}
+          {/* Future: Enable post creation when posts are supported */}
         </DropdownMenuContent>
       </DropdownMenu>
     </TooltipProvider>

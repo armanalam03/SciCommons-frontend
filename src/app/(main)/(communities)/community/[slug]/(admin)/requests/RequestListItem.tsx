@@ -46,7 +46,7 @@ const RequestListItem: React.FC<RequestListItemProps> = ({
               Requested on {dayjs(requestedAt).format('DD MMM YYYY')}
             </p>
           </div>
-          {/* <p className="cursor-pointer text-green-500">View Profile</p> */}
+          {/* Consider linking to the user's profile once available */}
         </div>
       </div>
       <div className="flex space-x-4">

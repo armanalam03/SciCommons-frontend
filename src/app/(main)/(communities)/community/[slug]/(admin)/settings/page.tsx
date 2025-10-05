@@ -8,11 +8,10 @@ import TabComponent from '@/components/communities/TabComponent';
 import { showErrorToast } from '@/lib/toastHelpers';
 import { useAuthStore } from '@/stores/authStore';
 
-// import About from './About';
 import AddRules from './AddRules';
 import EditCommunityDetails from './EditCommunityDetails';
 
-type ActiveTab = 'Details' | 'Rules' | 'About';
+type ActiveTab = 'Details' | 'Rules';
 
 const Preferences = ({ params }: { params: { slug: string } }) => {
   const [activeTab, setActiveTab] = useState<ActiveTab>('Details');
@@ -34,7 +33,6 @@ const Preferences = ({ params }: { params: { slug: string } }) => {
     <div className="mx-auto flex max-w-5xl flex-col">
       <div className="self-start">
         <TabComponent<ActiveTab>
-          // tabs={['Details', 'Rules', 'About']}
           tabs={['Details', 'Rules']}
           activeTab={activeTab}
           setActiveTab={setActiveTab}
@@ -44,7 +42,6 @@ const Preferences = ({ params }: { params: { slug: string } }) => {
         <EditCommunityDetails data={data} isPending={isPending} refetch={refetch} />
       )}
       {activeTab === 'Rules' && <AddRules data={data} isPending={isPending} />}
-      {/* {activeTab === 'About' && <About data={data} />} */}
     </div>
   );
 };

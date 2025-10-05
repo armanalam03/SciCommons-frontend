@@ -114,7 +114,3 @@ export function withAuth<P extends WithAuthProps>(
 
   return WithAuthComponent;
 }
-
-// function getDisplayName<P>(WrappedComponent: ComponentType<P>): string {
-//   return WrappedComponent.displayName || WrappedComponent.name || 'Component';
-// }

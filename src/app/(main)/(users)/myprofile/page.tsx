@@ -17,7 +17,7 @@ import ProfessionalStatus from './ProfessionalStatus';
 import Profile from './Profile';
 import ResearchInterests from './ResearchInterests';
 
-// Todo: Optimize the code
+// Note: Consider extracting subforms into reusable components to reduce complexity
 
 export interface IProfileForm {
   username: string;

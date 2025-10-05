@@ -54,20 +54,13 @@ const CommunityArticleDisplayPage: React.FC = () => {
     }
   }, [reviewsError]);
 
+  // Tabs for reviews and discussions, shown when article data is available
   const tabs = data
     ? [
         {
           title: 'Reviews',
           content: (
             <div className="flex flex-col gap-2">
-              {/* Todo: Uncomment this after testing */}
-              {/* {!data.data.is_submitter && (
-                <ReviewForm
-                  articleId={data?.data.id || 0}
-                  refetch={reviewsRefetch}
-                  communityId={data?.data.community_article?.community.id}
-                />
-              )} */}
               <ReviewForm
                 articleId={Number(data.data.id)}
                 refetch={reviewsRefetch}
@@ -96,10 +89,6 @@ const CommunityArticleDisplayPage: React.FC = () => {
             />
           ),
         },
-        // {
-        //   title: 'FAQs',
-        //   content: <DisplayFAQs faqs={data.data.faqs || []} />,
-        // },
       ]
     : [];
 

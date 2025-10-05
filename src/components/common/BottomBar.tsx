@@ -36,7 +36,6 @@ const BottomBar = () => {
     { name: '', route: '', icon: <CreateDropdown /> },
     { name: 'Articles', route: '/articles', icon: <Newspaper size={20} /> },
     { name: 'Contributions', route: '/mycontributions', icon: <NotebookTabs size={20} /> },
-    // { name: 'Posts', route: '/posts', icon: <NotebookPen size={18} /> },
   ];
 
   const hideBottomBarPaths = ['login', 'register', 'forgotpassword', 'resetpassword'];
@@ -74,7 +73,6 @@ const BottomBar = () => {
               link.name === activeTab,
             'text-gray-500': link.name !== activeTab,
           })}
-          // onClick={() => router.push(`/${link.name.toLowerCase()}`)}
           onClick={() => link.name && router.push(link.route)}
         >
           {link.icon}

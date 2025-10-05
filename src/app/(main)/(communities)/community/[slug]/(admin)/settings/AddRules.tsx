@@ -29,7 +29,7 @@ const AddRules: React.FC<AddRulesProps> = ({ data, isPending }) => {
 
   const accessToken = useAuthStore((state) => state.accessToken);
 
-  // Todo: Optimize this code to use a single mutation (add rules and update community details in a single mutation)
+  // Note: Consider combining rules update with other detail updates via a single mutation
   const { mutate, isPending: isUpdatePending } = useCommunitiesApiUpdateCommunity({
     request: { headers: { Authorization: `Bearer ${accessToken}` } },
     mutation: {

@@ -168,12 +168,6 @@ const ContributionsPage: React.FC = () => {
         count: data.data.communities_joined,
         description: 'Member or creator',
       },
-      // {
-      //   icon: Book,
-      //   title: 'Posts',
-      //   count: data.data.contributed_posts,
-      //   description: 'Created or commented',
-      // },
       {
         icon: Award,
         title: 'Awards',
@@ -206,15 +200,6 @@ const ContributionsPage: React.FC = () => {
         slug: community.name,
         memberCount: community.members_count,
       })) || [],
-    // posts:
-    //   postsData?.data.map((post) => ({
-    //     type: 'Post',
-    //     icon: post.action === 'Created' ? Book : MessageCircle,
-    //     title: post.title,
-    //     slug: post.id,
-    //     subtitle: `${post.action} on ${post.created_at} · ${post.likes_count} likes`,
-    //     iconColor: 'bg-indigo-100 text-indigo-600',
-    //   })) || [],
     favorites:
       favoritesData?.data.map((favorite) => ({
         icon: Star,
@@ -243,7 +228,6 @@ const ContributionsPage: React.FC = () => {
   const tabContent: Record<typeof activeTab, Array<ItemCardProps>> = {
     articles: userData?.articles || [],
     communities: userData?.communities || [],
-    // posts: userData?.posts || [],
     favorites: userData?.favorites || [],
     bookmarks: userData?.bookmarks || [],
   };
@@ -315,33 +299,6 @@ const ContributionsPage: React.FC = () => {
               </div>
 
               <div className="mt-8">
-                {/* <div className="sm:hidden">
-                  <button
-                    className="flex w-full items-center justify-between rounded-lg bg-white-primary px-4 py-2 text-left font-semibold text-gray-800 shadow"
-                    onClick={() => setIsTabsOpen(!isTabsOpen)}
-                  >
-                    {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
-                    <ChevronDown
-                      className={`h-5 w-5 transition-transform ${isTabsOpen ? 'rotate-180 transform' : ''}`}
-                    />
-                  </button>
-                  {isTabsOpen && (
-                    <div className="mt-2 overflow-hidden rounded-lg bg-white-primary shadow">
-                      {(Object.keys(tabContent) as Array<keyof typeof tabContent>).map((tab) => (
-                        <button
-                          key={tab}
-                          className="w-full px-4 py-2 text-left font-semibold text-gray-800 hover:bg-gray-100"
-                          onClick={() => {
-                            setActiveTab(tab);
-                            setIsTabsOpen(false);
-                          }}
-                        >
-                          {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div> */}
                 <div className="scrollbar-hide flex overflow-x-auto">
                   {(Object.keys(tabContent) as Array<keyof typeof tabContent>).map((tab) => (
                     <TabButton

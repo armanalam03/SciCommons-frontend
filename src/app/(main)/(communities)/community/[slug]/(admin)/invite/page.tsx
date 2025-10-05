@@ -29,7 +29,6 @@ const Invite = ({ params }: { params: { slug: string } }) => {
           setActiveTab={setActiveTab}
         />
       </div>
-      {/* {activeTab === 'Registered' && <Registered />} */}
       {activeTab === 'Send Invite' && <UnRegistered communityId={communityId} />}
       {activeTab === 'Status' && <StatusList slug={params.slug} />}
     </div>
