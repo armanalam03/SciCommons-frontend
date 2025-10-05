@@ -19,7 +19,6 @@ type ActiveTab = 'Details' | 'FAQs';
 const ArticleSettings = ({ params }: { params: { slug: string } }) => {
   const accessToken = useAuthStore((state) => state.accessToken);
   const axiosConfig = { headers: { Authorization: `Bearer ${accessToken}` } };
-  // const [activeTab, setActiveTab] = React.useState<ActiveTab>('Details');
   const [isEditEnabled, setIsEditEnabled] = useState(false);
   const isDesktop = useMediaQuery(`(min-width: ${SCREEN_WIDTH_SM}px)`);
 
@@ -40,14 +39,6 @@ const ArticleSettings = ({ params }: { params: { slug: string } }) => {
 
   return (
     <div className="mx-auto flex max-w-5xl flex-col">
-      {/* <div className="self-start">
-        <TabComponent<ActiveTab>
-          tabs={['Details', 'FAQs']}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-      </div> */}
-      {/* {activeTab === 'Details' && ( */}
       <div className="relative w-full rounded-xl border-common-contrast sm:border sm:bg-common-cardBackground sm:p-6">
         <div className="mb-4 flex items-center justify-between sm:justify-center">
           <h1 className="font-bold text-text-primary res-heading-base">
@@ -78,10 +69,6 @@ const ArticleSettings = ({ params }: { params: { slug: string } }) => {
               label: author.label,
               value: author.value,
             }))}
-            // keywords={data.data.keywords.map((keyword) => ({
-            //   label: keyword,
-            //   value: keyword,
-            // }))}
             submissionType={data.data.submission_type}
             defaultImageURL={data.data.article_image_url || ''}
             articleId={Number(data.data.id)}
@@ -91,24 +78,6 @@ const ArticleSettings = ({ params }: { params: { slug: string } }) => {
           />
         )}
       </div>
-      {/* )} */}
-      {/* {data && activeTab === 'FAQs' && (
-        <AddFAQs
-          faqs={data.data.faqs || []}
-          title={data.data.title}
-          abstract={data.data.abstract}
-          authors={data.data.authors.map((author) => ({
-            label: author.label,
-            value: author.value,
-          }))}
-          keywords={data.data.keywords.map((keyword) => ({
-            label: keyword,
-            value: keyword,
-          }))}
-          submissionType={data.data.submission_type}
-          articleId={Number(data.data.id)}
-        />
-      )} */}
     </div>
   );
 };

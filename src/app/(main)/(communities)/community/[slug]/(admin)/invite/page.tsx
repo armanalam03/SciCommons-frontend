@@ -9,7 +9,6 @@ import TabComponent from '@/components/communities/TabComponent';
 import StatusList from './StatusList';
 import UnRegistered from './UnRegistered';
 
-// type ActiveTab = 'Registered' | 'UnRegistered' | 'Status';
 type ActiveTab = 'Send Invite' | 'Status';
 
 const Invite = ({ params }: { params: { slug: string } }) => {
@@ -29,7 +28,6 @@ const Invite = ({ params }: { params: { slug: string } }) => {
           setActiveTab={setActiveTab}
         />
       </div>
-      {/* {activeTab === 'Registered' && <Registered />} */}
       {activeTab === 'Send Invite' && <UnRegistered communityId={communityId} />}
       {activeTab === 'Status' && <StatusList slug={params.slug} />}
     </div>

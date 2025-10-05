@@ -22,8 +22,6 @@ interface FormValues {
   tags: Option[];
   type: OptionType;
   community_settings?: CommunityOutCommunitySettings | undefined;
-  // profileImage: FileObj;
-  // bannerImage: FileObj;
 }
 
 interface EditCommunityDetailsProps {
@@ -72,35 +70,12 @@ const EditCommunityDetails: React.FC<EditCommunityDetailsProps> = ({
         type: formData.type,
         rules: data.data?.rules || [],
         community_settings: formData.community_settings,
-        // tags: formData.tags?.map((tag) => tag.value),
-        // about: data.data.about,
       };
-
-      // const truncateFileName = (file: File): File => {
-      //   let fileName = file.name;
-      //   if (fileName.length > 100) {
-      //     const extension = fileName.split('.').pop() || '';
-      //     fileName = fileName.slice(0, 96 - extension.length) + '...' + extension;
-      //   }
-      //   return new File([file], fileName, { type: file.type });
-      // };
-
-      // let profile_pic_file: File | undefined;
-      // if (formData.profileImage && formData.profileImage.file) {
-      //   profile_pic_file = truncateFileName(formData.profileImage.file);
-      // }
-
-      // let banner_pic_file: File | undefined;
-      // if (formData.bannerImage && formData.bannerImage.file) {
-      //   banner_pic_file = truncateFileName(formData.bannerImage.file);
-      // }
 
       mutate({
         communityId: Number(data.data.id),
         data: {
           payload: { details: dataToSend },
-          // profile_pic_file,
-          // banner_pic_file,
         },
       });
     }

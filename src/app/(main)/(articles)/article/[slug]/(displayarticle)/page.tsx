@@ -55,16 +55,13 @@ const ArticleDisplayPage = ({ params }: { params: { slug: string } }) => {
     if (reviewsError) showErrorToast(reviewsError);
   }, [reviewsError]);
 
+  // Build tabs for reviews and discussions; add more when ready
   const tabs = data
     ? [
         {
           title: 'Reviews',
           content: (
             <div className="flex flex-col gap-2">
-              {/* Todo: Uncomment this after testing */}
-              {/* {!data.data.is_submitter && (
-                <ReviewForm articleId={Number(data.data.id)} refetch={reviewsRefetch} />
-              )} */}
               <span className="mb-2 border-b border-common-minimal pb-2 text-base font-bold text-text-secondary">
                 Add your review
               </span>
@@ -93,33 +90,10 @@ const ArticleDisplayPage = ({ params }: { params: { slug: string } }) => {
           title: 'Discussions',
           content: <DiscussionForum articleId={Number(data.data.id)} />,
         },
-        // {
-        //   title: 'FAQs',
-        //   content: <DisplayFAQs faqs={data.data.faqs || []} />,
-        // },
+        // FAQs tab can be added back when the feature is ready
       ]
     : [];
 
-  // const LeftSide = (
-  //   <>
-  //     {isPending ? <DisplayArticleSkeleton /> : data && <DisplayArticle article={data.data} />}
-  //     {data && (
-  //       <div className="mt-4">
-  //         <TabNavigation tabs={tabs} />
-  //       </div>
-  //     )}
-  //   </>
-  // );
-
-  // const RightSide = (
-  //   <>
-  //     <div className="mb-4">
-  //       {isPending ? <ArticleStatsSkeleton /> : data && <ArticleStats article={data.data} />}
-  //     </div>
-  //     <RelevantArticles articleId={data?.data.id || 0} />
-  //   </>
-  // );
-  // return <SplitScreenLayout leftSide={LeftSide} rightSide={RightSide} />;
   return (
     <div className="w-full p-4 py-4 md:px-6">
       {isPending ? <DisplayArticleSkeleton /> : data && <DisplayArticle article={data.data} />}

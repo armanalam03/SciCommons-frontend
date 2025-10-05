@@ -1,6 +1,6 @@
 'use client';
 
-// InitializedMDXEditor.tsx
+// MDX editor initialized with common plugins and toolbar
 import type { ForwardedRef } from 'react';
 import React from 'react';
 
@@ -51,6 +51,7 @@ export default function InitializedMDXEditor({
 }: { editorRef: ForwardedRef<MDXEditorMethods> | null } & MDXEditorProps) {
   const { theme } = useTheme();
 
+  // Example snippet kept for future plugin demo usage
   const defaultSnippetContent = `
 export default function App() {
   return (
@@ -108,7 +109,7 @@ export default function App() {
           <InsertCodeBlock />
           <ListsToggle />
           <CreateLink />
-          {/* <InsertImage /> */}
+          {/* Image insertion is disabled via imagePlugin configuration */}
           <InsertTable />
           <InsertThematicBreak />
         </div>

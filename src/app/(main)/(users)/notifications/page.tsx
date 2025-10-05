@@ -33,22 +33,7 @@ const NotificationPage: React.FC = () => {
     mutate({ notificationId: id });
   };
 
-  //   const markAsRead = async (id: number) => {
-  //     try {
-  //       await axios.post(`/api/notifications/${id}/mark-as-read`);
-  //       setNotifications(
-  //         notifications.map((notif) => (notif.id === id ? { ...notif, isRead: true } : notif))
-  //       );
-  //     } catch (error) {
-  //       console.error('Failed to mark notification as read:', error);
-  //     }
-  //   };
-
-  // const markAsRead = (id: number) => {
-  //   setNotifications(
-  //     notifications.map((notif) => (notif.id === id ? { ...notif, isRead: true } : notif))
-  //   );
-  // };
+  // Mark-as-read handled via API mutation above
 
   return (
     <div className="mx-auto max-w-4xl p-4">

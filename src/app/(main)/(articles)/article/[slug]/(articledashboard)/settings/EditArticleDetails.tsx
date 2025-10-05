@@ -20,7 +20,6 @@ interface FormValues {
   title: string;
   abstract: string;
   authors: Option[];
-  // keywords: Option[];
   submissionType: 'Public' | 'Private';
   articleImageFile: FileObj;
 }
@@ -30,7 +29,6 @@ interface EditArticleDetailsProps {
   title: string;
   abstract: string;
   authors: Option[];
-  // keywords: Option[];
   submissionType: 'Public' | 'Private';
   defaultImageURL: string | null;
   isEditEnabled: boolean;
@@ -60,7 +58,6 @@ const EditArticleDetails: React.FC<EditArticleDetailsProps> = (props) => {
       title: title,
       abstract: abstract,
       authors: authors,
-      // keywords: keywords,
       submissionType: submissionType,
     },
   });
@@ -86,25 +83,9 @@ const EditArticleDetails: React.FC<EditArticleDetailsProps> = (props) => {
           value: author.value,
           label: author.label,
         })),
-        // keywords: formData.keywords.map((keyword) => keyword.value),
         submission_type: formData.submissionType,
       },
     };
-    // let image_file: File | undefined;
-    // if (formData.articleImageFile && formData.articleImageFile.file) {
-    //   const originalFile = formData.articleImageFile.file;
-    //   let fileName = originalFile.name;
-
-    //   // Truncate filename if it's longer than 100 characters
-    //   if (fileName.length > 100) {
-    //     const extension = fileName.split('.').pop() || '';
-    //     fileName = fileName.slice(0, 96 - extension.length) + '...' + extension;
-    //   }
-
-    //   image_file = new File([originalFile], fileName, { type: originalFile.type });
-    // }
-
-    // mutate({ articleId, data: { details: dataToSend, image_file } });
     mutate({ articleId, data: { details: dataToSend } });
   };
 
@@ -120,19 +101,6 @@ const EditArticleDetails: React.FC<EditArticleDetailsProps> = (props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-8">
-      {/* <Controller
-        name="articleImageFile"
-        control={control}
-        render={({}) => (
-          <ImageUpload
-            control={control}
-            name="articleImageFile"
-            label="Article Image"
-            info="Upload a profile image for your community"
-            defaultImageURL={defaultImageURL || undefined}
-          />
-        )}
-      /> */}
       <FormInput<FormValues>
         label="Title"
         name="title"
@@ -177,22 +145,6 @@ const EditArticleDetails: React.FC<EditArticleDetailsProps> = (props) => {
           />
         )}
       />
-      {/* <Controller
-        name="keywords"
-        control={control}
-        rules={{ required: 'Authors are required' }}
-        render={({ field: { onChange, value }, fieldState }) => (
-          <MultiLabelSelector
-            label="Keywords"
-            tooltipText="Help users find your community by adding tags."
-            placeholder="Add Tags"
-            creatable
-            value={value}
-            onChange={onChange}
-            fieldState={fieldState}
-          />
-        )}
-      /> */}
       <div className="mb-4 space-y-2">
         <label className="block text-sm font-medium text-text-secondary">Submission Type</label>
         <Controller
@@ -213,19 +165,6 @@ const EditArticleDetails: React.FC<EditArticleDetailsProps> = (props) => {
               >
                 <ButtonTitle className="text-base">Public</ButtonTitle>
               </Button>
-              {/* <Button
-                className={cn(
-                  'w-fit cursor-pointer rounded-lg border px-4 py-2',
-                  value === 'Private'
-                    ? 'border-functional-green bg-functional-green/10'
-                    : 'border-common-contrast'
-                )}
-                type="button"
-                variant={'outline'}
-                onClick={() => isEditEnabled && onChange('Private')}
-              >
-                <ButtonTitle className="text-base">Private</ButtonTitle>
-              </Button> */}
             </div>
           )}
         />
