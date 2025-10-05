@@ -84,7 +84,7 @@ const Comment: React.FC<CommentProps> = ({
   dayjs.extend(relativeTime);
   const accessToken = useAuthStore((state) => state.accessToken);
 
-  // Todo: Too many requests
+  // Note: Consider batching or debouncing reactions to reduce request volume
   const { data, refetch } = useUsersCommonApiGetReactionCount(contentType, Number(id), {
     request: { headers: { Authorization: `Bearer ${accessToken}` } },
   });

@@ -22,8 +22,6 @@ interface FormValues {
   tags: Option[];
   type: OptionType;
   community_settings?: CommunityOutCommunitySettings | undefined;
-  // profileImage: FileObj;
-  // bannerImage: FileObj;
 }
 
 interface EditCommunityDetailsProps {
@@ -72,35 +70,12 @@ const EditCommunityDetails: React.FC<EditCommunityDetailsProps> = ({
         type: formData.type,
         rules: data.data?.rules || [],
         community_settings: formData.community_settings,
-        // tags: formData.tags?.map((tag) => tag.value),
-        // about: data.data.about,
       };
-
-      // const truncateFileName = (file: File): File => {
-      //   let fileName = file.name;
-      //   if (fileName.length > 100) {
-      //     const extension = fileName.split('.').pop() || '';
-      //     fileName = fileName.slice(0, 96 - extension.length) + '...' + extension;
-      //   }
-      //   return new File([file], fileName, { type: file.type });
-      // };
-
-      // let profile_pic_file: File | undefined;
-      // if (formData.profileImage && formData.profileImage.file) {
-      //   profile_pic_file = truncateFileName(formData.profileImage.file);
-      // }
-
-      // let banner_pic_file: File | undefined;
-      // if (formData.bannerImage && formData.bannerImage.file) {
-      //   banner_pic_file = truncateFileName(formData.bannerImage.file);
-      // }
 
       mutate({
         communityId: Number(data.data.id),
         data: {
           payload: { details: dataToSend },
-          // profile_pic_file,
-          // banner_pic_file,
         },
       });
     }
@@ -191,21 +166,6 @@ const EditCommunityDetails: React.FC<EditCommunityDetailsProps> = ({
       {isPending && <DetailsSkeleton />}
       {data && (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-8">
-          {/* Profile Image */}
-          {/* <Controller
-            name="profileImage"
-            control={control}
-            // rules={{ required: 'Profile Image is required' }}
-            render={({}) => (
-              <ImageUpload
-                control={control}
-                name="profileImage"
-                label="Community Profile Image"
-                info="Upload a profile image for your community"
-                defaultImageURL={data.data.profile_pic_url ? data.data.profile_pic_url : undefined}
-              />
-            )}
-          /> */}
           {/* Description */}
           <FormInput<FormValues>
             label="Description"
@@ -222,22 +182,6 @@ const EditCommunityDetails: React.FC<EditCommunityDetailsProps> = ({
             readOnly={!isEditEnabled}
           />
           {/* Tags */}
-          {/* <Controller
-            name="tags"
-            control={control}
-            rules={{ required: 'Authors are required' }}
-            render={({ field: { onChange, value }, fieldState }) => (
-              <MultiLabelSelector
-                label="Tags"
-                tooltipText="Help users find your community by adding tags."
-                placeholder="Add Tags"
-                creatable
-                value={value}
-                onChange={onChange}
-                fieldState={fieldState}
-              />
-            )}
-          /> */}
           {/* Community Type */}
           <div className="w-full">
             <LabeledTooltip
@@ -307,19 +251,6 @@ const EditCommunityDetails: React.FC<EditCommunityDetailsProps> = ({
                 : optionsDescriptions[selectedType]}
             </span>
           </div>
-          {/* <Controller
-            name="bannerImage"
-            control={control}
-            render={({}) => (
-              <ImageUpload
-                control={control}
-                name="bannerImage"
-                label="Community Banner Image"
-                info="Upload a banner image for your community"
-                defaultImageURL={data.data.banner_pic_url ? data.data.banner_pic_url : undefined}
-              />
-            )}
-          /> */}
 
           <Button
             showLoadingSpinner={false}

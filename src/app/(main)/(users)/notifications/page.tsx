@@ -33,23 +33,6 @@ const NotificationPage: React.FC = () => {
     mutate({ notificationId: id });
   };
 
-  //   const markAsRead = async (id: number) => {
-  //     try {
-  //       await axios.post(`/api/notifications/${id}/mark-as-read`);
-  //       setNotifications(
-  //         notifications.map((notif) => (notif.id === id ? { ...notif, isRead: true } : notif))
-  //       );
-  //     } catch (error) {
-  //       console.error('Failed to mark notification as read:', error);
-  //     }
-  //   };
-
-  // const markAsRead = (id: number) => {
-  //   setNotifications(
-  //     notifications.map((notif) => (notif.id === id ? { ...notif, isRead: true } : notif))
-  //   );
-  // };
-
   return (
     <div className="mx-auto max-w-4xl p-4">
       <h1 className="mb-6 text-center text-4xl font-bold text-text-primary sm:my-6">
@@ -70,11 +53,9 @@ const NotificationPage: React.FC = () => {
               </p>
               <p className="text-sm text-text-tertiary">
                 {notif.notificationType} - {new Date(notif.createdAt).toLocaleDateString()}
-                {/* {new Date(notif.expiresAt).toLocaleDateString()} */}
               </p>
               {notif.content && <p className="mt-2 text-sm text-text-secondary">{notif.content}</p>}
               <div className="mt-2 flex items-center justify-between">
-                {/* Display View only if the link is present */}
                 {notif.link && (
                   <a
                     href={notif.link}

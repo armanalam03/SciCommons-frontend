@@ -11,11 +11,6 @@ import Sidebar from '@/components/common/Sidebar';
 export default function CommunityAdminLayout({ children }: { children: React.ReactNode }) {
   const params = useParams<{ slug: string }>();
   const links = [
-    // {
-    //   href: `/community/${params?.slug}/dashboard`,
-    //   label: 'Dashboard',
-    //   icon: <Activity className="mr-3 dark:text-gray-300" />,
-    // },
     {
       href: `/community/${params?.slug}/settings`,
       label: 'Settings',

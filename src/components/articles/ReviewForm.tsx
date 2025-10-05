@@ -35,7 +35,8 @@ interface ReviewFormProps {
   setEdit?: (edit: boolean) => void;
   refetch?: () => void;
   communityId?: number | null;
-  is_submitter?: boolean; // Todo: Remove this after testing
+  // When true, user is the submitter; rating validation is relaxed
+  is_submitter?: boolean;
 }
 
 type ActionType = 'create' | 'edit' | 'delete';
@@ -156,7 +157,6 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
               <Controller
                 name="rating"
                 control={control}
-                // rules={{ validate: (value) => (value > 0 ? true : 'A valid rating must be given') }}
                 rules={{
                   validate: (value) => {
                     if (!is_submitter) {
@@ -265,17 +265,6 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
                 >
                   {isPending ? 'Submitting...' : 'Submit Review'}
                 </Button>
-                {/* <span className="text-text-tertiary res-text-xs">
-                By clicking Submit Review, you agree to our{' '}
-                <a href="#" className="text-functional-blue hover:underline">
-                  terms of service
-                </a>{' '}
-                and{' '}
-                <a href="#" className="text-functional-blue hover:underline">
-                  privacy policy
-                </a>
-                .
-              </span> */}
               </div>
             )}
           </form>

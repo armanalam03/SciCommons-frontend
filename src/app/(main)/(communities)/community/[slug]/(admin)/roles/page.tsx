@@ -15,7 +15,7 @@ import UsersListItem from './UsersListItem';
 
 type ActiveTab = 'Members' | 'Moderators' | 'Reviewers' | 'Admins';
 
-// Todo: Optimize the code to reduce the number of lines
+// Note: The rendering for each tab is similar; consider extracting a reusable list later
 const Roles = ({ params }: { params: { slug: string } }) => {
   const [activeTab, setActiveTab] = React.useState<ActiveTab>('Members');
 
@@ -46,7 +46,6 @@ const Roles = ({ params }: { params: { slug: string } }) => {
           setActiveTab={setActiveTab}
         />
       </div>
-      {/* Todo: Reduce the number of lines of code */}
       {activeTab === 'Members' && (
         <div className="my-4 flex flex-col">
           {isPending &&

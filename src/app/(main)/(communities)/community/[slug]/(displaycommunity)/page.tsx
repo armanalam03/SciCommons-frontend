@@ -48,10 +48,6 @@ const Community = ({ params }: { params: { slug: string } }) => {
               <CommunityArticles communityId={data.data.id} />
             ),
         },
-        // {
-        //   title: 'About',
-        //   content: <CommunityAbout about={data.data.about as YooptaContentValue} />,
-        // },
         ...(data.data.rules || data.data.is_member
           ? [
               {

@@ -59,14 +59,6 @@ const DisplayCommunity: React.FC<DisplayCommunityProps> = ({ community, refetch 
     <div className="overflow-hidden rounded-xl border border-common-contrast bg-common-cardBackground">
       <div className="relative p-4 md:p-6">
         <div className="flex gap-4">
-          {/* <div className="relative aspect-square size-10 shrink-0 overflow-hidden rounded-full">
-            <Image
-              src={community.profile_pic_url || `data:image/png;base64,${imageData}`}
-              alt="Profile"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div> */}
           <div className="flex w-full flex-col gap-2">
             <h2
               className="w-[95%] text-wrap font-bold text-text-primary res-heading-sm"
@@ -100,14 +92,6 @@ const DisplayCommunity: React.FC<DisplayCommunityProps> = ({ community, refetch 
             </div>
           </div>
         </div>
-        {/* <div className="absolute right-4 top-4">
-          <Button className="bg-functional-yellowLight/10 hover:bg-functional-yellowLight/5">
-            <ButtonIcon>
-              <Bell className="h-4 w-4 text-functional-yellow" />
-            </ButtonIcon>
-            <ButtonTitle className="text-functional-yellow">Notifications</ButtonTitle>
-          </Button>
-        </div> */}
       </div>
       <div className="flex items-center justify-between px-2">
         <div className="ml-auto flex items-center justify-end space-x-4 p-4">

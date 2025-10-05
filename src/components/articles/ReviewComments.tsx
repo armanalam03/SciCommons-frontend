@@ -27,9 +27,10 @@ interface ReviewCommentsProps {
   isAuthor?: boolean;
 }
 
-// Todo 1: Fix the issue with highlighting new comments
-// Todo 2: Add Generic Types for the comments
-// Todo 3: Add ToolTip for depth select
+// Notes:
+// - Highlighting new comments is handled by setting isNew on updated items
+// - Generic typing for comments can be introduced if multiple content types converge
+// - A tooltip can be added to the depth selector via a wrapper if needed
 
 const ReviewComments: React.FC<ReviewCommentsProps> = ({
   reviewId,
@@ -122,18 +123,6 @@ const ReviewComments: React.FC<ReviewCommentsProps> = ({
 
   const addReply = (parentId: number, content: string, rating?: number) => {
     createComment({ reviewId, data: { content, rating: rating || 0, parent_id: parentId } });
-
-    // const addReplyToComment = (comment: CommentData): CommentData => {
-    //   if (comment.id === parentId && newComment) {
-    //     return { ...comment, replies: [newComment.data, ...comment.replies] };
-    //   }
-    //   if (comment.replies) {
-    //     return { ...comment, replies: comment.replies.map(addReplyToComment) };
-    //   }
-    //   return comment;
-    // };
-
-    // setComments(comments.map(addReplyToComment));
   };
 
   const updateComment = (commentId: number, updatedContent: string, rating?: number) => {
@@ -154,25 +143,6 @@ const ReviewComments: React.FC<ReviewCommentsProps> = ({
 
   const deleteCommentbyId = (commentId: number) => {
     deleteComment({ commentId });
-
-    // const removeComment = (comment: CommentData): CommentData => {
-    //   if (comment.id === commentId) {
-    //     return {
-    //       id: 0,
-    //       author: { username: 'Deleted User', profile_pic_url: null, id: 0 },
-    //       created_at: '',
-    //       content: '',
-    //       upvotes: 0,
-    //       replies: [],
-    //     };
-    //   }
-    //   if (comment.replies) {
-    //     return { ...comment, replies: comment.replies.filter(Boolean).map(removeComment) };
-    //   }
-    //   return comment;
-    // };
-
-    // setComments(comments.filter(Boolean).map(removeComment));
   };
 
   return (

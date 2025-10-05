@@ -95,7 +95,6 @@ export default function UnRegisteredUsersInvitation({
           <>
             <div className="relative size-10 flex-shrink-0 sm:mr-4">
               <Image
-                // src={data.data.profile_pic_url || `data:image/png;base64,${imageData}`}
                 src={`data:image/png;base64,${imageData}`}
                 alt={data.data.name}
                 fill
@@ -114,10 +113,6 @@ export default function UnRegisteredUsersInvitation({
                   <Users className="mr-1 h-4 w-4" />
                   <span className="text-xs">{data.data.num_members} Members</span>
                 </div>
-                {/* <div className="flex items-center">
-                <FileText className="mr-1 h-4 w-4" />
-                <span className="text-xs">Published {community.num_articles} Articles</span>
-              </div> */}
               </div>
             </div>
             <div className="flex space-x-4 self-end">
